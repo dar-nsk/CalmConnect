@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Light background similar to the dashboard */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* Header styling */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .title-box {
+            background-color:#28a745; /* Match the dashboard color */
+            border-radius: 10px;
+            padding: 15px 30px;
+        }
+
+        .title-box h1 {
+            font-size: 3rem;
+            color: white;
+        }
+
+        /* Options container styling */
+        .options-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            background-color: orangered; /* Fallback color */
+            color:white;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* AI Assistant Button with background image */
+        .option.ai-assistant {
+            background-image: url('/bg.webp'); /* Replace with your image */
+        }
+
+        /* Professional Counselor Button with background image */
+        .option.professional-counselor {
+            background-image: url('/counselor.jpg'); /* Replace with your image */
+        }
+
+        /* Remove underline from the "Professional Counselor" link */
+        .option.professional-counselor a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit the color from the parent */
+            display: block; /* Make the anchor tag take the full size of the button */
+            width: 100%;
+            height: 100%;
+        }
+
+        .option:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        .option h2 {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay on text for readability */
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <!-- Botpress Scripts -->
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/685d5163-7614-4c06-b42e-52269330c0e5/webchat/config.js" defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header section -->
+        <header>
+            <div class="title-box">
+                <h1>Do You Want To Continue with AI Assitant?</h1>
+            </div>
+        </header>
+
+        <!-- Buttons for AI Assistant and Professional Counselor -->
+        <div class="options-container">
+            <div class="option ai-assistant" id="ai-assistant-button">
+                <h2>AI Assistant</h2>
+            </div>
+            <div class="option professional-counselor" id="counselor-button">
+                <a href="p3.html">
+                    <h2>Professional Counselor</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Trigger the chatbot when the AI Assistant option is clicked
+        document.getElementById('ai-assistant-button').onclick = function() {
+            window.botpressWebChat.sendEvent({
+                type: 'show'
+            });
+        };
+
+        // Add functionality for the "Professional Counselor" button if needed
+        document.getElementById('counselor-button').onclick = function() {
+            alert('You selected: Professional Counselor');
+        };
+    </script>
+</body>
+</html>

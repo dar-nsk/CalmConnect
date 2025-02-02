@@ -1,0 +1,402 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f0f7;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color:#495057; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #28a745;
+            font-size: 14px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            padding: 15px 20px;
+            color: white;
+            background-color: #495057;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background-color: white;
+            color:#495057;
+        }
+
+        .menu a.active {
+            font-weight: bold;
+            border-left: 8px solid #28a745;
+        }
+
+        .logout {
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            width: 75%;
+            background-color: white;
+            padding: 60px;
+            overflow-y: auto;
+        }
+
+        h3 {
+            text-align: center;
+            color: black;
+            margin-bottom: 50px;
+            font-size: 30px;
+        }
+
+        .issue-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-gap: 20px;
+            justify-items: center;
+        }
+
+        .issue-btn-container {
+            width: 100%; /* Ensures buttons fill the container */
+        }
+
+        .issue-btn {
+            width: 100%; /* Ensure the button takes full width of its parent */
+            height: 200px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            color: white;
+            font-size: 24px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-color: #ddd;
+            text-decoration: none; /* Ensure no underline appears on buttons */
+        }
+
+        .issue-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .issue-btn span {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* Add the appropriate background images here */
+        .issue-btn.social {
+            background-image: url('/soci.jpg');
+        }
+
+        .issue-btn.family {
+            background-image: url('/family.jpg');
+        }
+
+        .issue-btn.relationship {
+            background-image: url('/relation.png');
+        }
+
+        .issue-btn.financial {
+            background-image: url('/fan.png');
+        }
+
+        .issue-btn.academics {
+            background-image: url('/acedemic.jfif.jpg');
+        }
+
+        .issue-btn.health {
+            background-image: url('/health.png');
+        }
+
+        .issue-btn.worklife {
+            background-image: url('/work.png');
+        }
+
+        .issue-btn.other {
+            background-image: url('/friend.webp');
+        }
+
+        /* Content display area */
+        .content-display {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add this to remove underline from links */
+        .issue-btn-container a {
+            text-decoration: none; /* Remove underline from all anchor tags inside issue-btn-container */
+        }
+
+        /* Feedback container */
+        .feedback-container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>WISDOM WAVE</h1>
+                <p>Your happy place!</p>
+            </div>
+            <div class="menu">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#" id="profileBtn">Profile</a>
+                <a href="#">Quiz Attempted</a>
+                <a href="#" id="feedbackBtn">Feedback</a>
+            </div>
+            <button class="logout">
+                <a href="/flicity.html" style="text-decoration: none; color: white;">Log out</a>
+            </button>
+        </div>
+        <div class="main-content">
+            <!-- Display User Avatar and Username -->
+            <div class="profile-header">
+                <img id="avatar" src="" alt="User Avatar" style="width: 100px; height: auto; border-radius: 50%;">
+                <h3 id="username">Loading...</h3>
+            </div>
+            <h3>Select the type of issue you are suffering from</h3>
+            <div class="issue-grid">
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn social"><span>Social</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn family"><span>Family</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn relationship"><span>Relationship</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn financial"><span>Financial</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn academics"><span>Academics</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn health"><span>Health</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn worklife"><span>Work-Life</span></button>
+                    </a>
+                </div>
+                <div class="issue-btn-container">
+                    <a href="/o.html">
+                        <button class="issue-btn other"><span>Other</span></button>
+                    </a>
+                </div>
+            </div>
+
+           
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeProfileModal">&times;</span>
+            <h2>Profile Information</h2>
+            <div class="profile-info">
+                <img src="/public/avatar.png" alt="Logo" style="width: 100px; height: auto;"><br>
+                <strong>Email:</strong> user@example.com<br>
+                <strong>Phone:</strong> +1 234 567 8901
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeFeedbackModal">&times;</span>
+            <h2>Feedback</h2>
+            <div class="feedback-container">
+                <p>Your feedback is important to us!</p>
+                <textarea rows="4" style="width: 100%;"></textarea>
+                <button style="margin-top: 10px; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px;">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Fetch and Display User Data
+        fetch('/dash')
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.username && data.avatarUrl) {
+                    document.getElementById("username").textContent = data.username;
+                    document.getElementById("avatar").src = data.avatarUrl;
+                } else {
+                    alert("Unable to fetch user details. Please login again.");
+                    window.location.href = "/login"; // Redirect to login
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching user data:", error);
+            });
+
+        // Other existing JavaScript (e.g., modal handling) remains unchanged
+    
+        // Handle active menu selection
+        const menuLinks = document.querySelectorAll('.menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+       
+       
+        // Profile modal handling
+        const profileBtn = document.getElementById("profileBtn");
+        const profileModal = document.getElementById("profileModal");
+        const closeProfileModal = document.getElementById("closeProfileModal");
+
+        profileBtn.onclick = function() {
+            profileModal.style.display = "block";
+        }
+
+        closeProfileModal.onclick = function() {
+            profileModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == profileModal) {
+                profileModal.style.display = "none";
+            }
+        }
+
+        // Feedback modal handling
+        const feedbackBtn = document.getElementById("feedbackBtn");
+        const feedbackModal = document.getElementById("feedbackModal");
+        const closeFeedbackModal = document.getElementById("closeFeedbackModal");
+
+        feedbackBtn.onclick = function() {
+            feedbackModal.style.display = "block";
+        }
+
+        closeFeedbackModal.onclick = function() {
+            feedbackModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == feedbackModal) {
+                feedbackModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

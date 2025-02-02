@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Same CSS from your provided code */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('background.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(76, 175, 80, 0.9); /* Semi-transparent */
+            color: white;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White background for readability */
+            margin: 20px auto;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        .contact-info {
+            margin: 20px 0;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        form input, form textarea {
+            padding: 12px;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            font-size: 1em;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        form input:focus, form textarea:focus {
+            border-color: #45a049;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
+            outline: none;
+        }
+        form button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .social-media a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-media a:hover {
+            color: #45a049;
+        }
+        footer.footer {
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        footer.footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Logo</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+        <p><strong>Email:</strong> your-email@example.com</p>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p><strong>Office Hours:</strong> Monday to Friday, 9 AM - 5 PM</p>
+    </div>
+    
+    <form id="contactForm" action="/submit-form" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <p>Feel free to reach out to us with any questions or feedback!</p>
+    
+    <div class="social-media">
+        <p>Connect with us on social media:</p>
+        <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2024 Your Website Name. All rights reserved.</p>
+</footer>
+
+<div id="notification" style="display: none; padding: 10px; margin: 10px 0; border-radius: 5px;"></div>
+
+<script>
+    const form = document.getElementById('contactForm');
+    const notification = document.getElementById('notification');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission
+        notification.style.display = 'none'; // Hide previous notification
+
+        // Collect form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                // Success Notification
+                notification.textContent = 'Form submitted successfully!';
+                notification.style.backgroundColor = '#4CAF50';
+                notification.style.color = 'white';
+                notification.style.display = 'block';
+                form.reset(); // Clear the form
+            } else {
+                // Error Notification
+                const result = await response.json();
+                notification.textContent = result.error || 'Error submitting the form.';
+                notification.style.backgroundColor = '#f44336';
+                notification.style.color = 'white';
+                notification.style.display = 'block';
+            }
+        } catch (error) {
+            // Network Error Notification
+            notification.textContent = 'Unable to connect to the server.';
+            notification.style.backgroundColor = '#f44336';
+            notification.style.color = 'white';
+            notification.style.display = 'block';
+        }
+    });
+</script>
+
+
+</body>
+</html>

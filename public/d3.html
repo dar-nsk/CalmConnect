@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Problems</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            display: flex; /* Flexbox for layout */
+            flex-direction: row; /* Row layout */
+        }
+        .sidebar {
+            width: 250px;
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar h2 {
+            margin: 0 0 20px;
+            color: white;
+        }
+        
+        .sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar nav ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .sidebar nav ul li:hover {
+            background: #495057;
+        }
+
+        .main-content {
+            flex-grow: 1; /* Take up remaining space */
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .problems-list, .assigned-quizzes-list {
+            margin-top: 20px;
+            display: grid; /* Use grid layout for square containers */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Spacing between items */
+        }
+        
+        .problem-item, .assigned-quiz-item {
+            background-color: #f6fbfc;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            display: flex; /* Flexbox for alignment */
+            flex-direction: column; /* Vertical stacking */
+            justify-content: center; /* Center content */
+            align-items: center; /* Center content */
+            text-align: center; /* Center text */
+        }
+        
+        .problem-item h3, .assigned-quiz-item h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .problem-item p {
+            margin: 0 0 10px; /* Space between description and button */
+            color: #777;
+            font-size: 0.9em; /* Slightly smaller font for description */
+        }
+
+        .problem-item button, .assigned-quiz-item button {
+            padding: 5px;
+            width: 100px;
+            background-color: #28a745;
+            border: none;
+            margin-top: auto; /* Align to bottom */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .problem-item button a{
+            text-decoration: none;
+            color: black;
+        }
+        .problem-item button:hover, .assigned-quiz-item button:hover {
+            background-color: #09531d;
+            color: white;
+        }
+        
+        .assigned-quizzes {
+            margin-top: 40px;
+        }
+        
+        .assigned-quizzes h2 {
+            color: #28a745;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>User Name</h2>
+        <nav>
+            <ul>
+                <li onclick="showSection('dashboard')">Dashboard</li>
+                <li onclick="showSection('quiz')">Quiz Section</li>
+                <li onclick="showSection('feedback')">Feedback</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Quiz Section</h1>
+        <p>Mental health issues can affect anyone, and it's important to recognize and understand them. Here are some common mental health problems:</p>
+        
+        <div class="problems-list">
+            <div class="problem-item">
+                <h3>Level 1</h3>
+                <p>A basic assessment of mood and anxiety.</p>
+                <button><a href="./q1.html" style="text-decoration: none; color: white;">Start</a></button>
+            </div>
+            <div class="problem-item">
+                <h3>Level 2</h3>
+                <p>Identifies stress and coping mechanisms.</p>
+                <button><a href="./q2.html" style="text-decoration: none; color: white;">Start</a></button>
+            </div>
+            <div class="problem-item">
+                <h3>Level 3</h3>
+                <p>Explores deeper emotional challenges.</p>
+                <button>Start</button>
+            </div>
+            <div class="problem-item">
+                <h3>Level 4</h3>
+                <p>Evaluates behavioral patterns and triggers.</p>
+                <button>Start</button>
+            </div>
+            <div class="problem-item">
+                <h3>Level 5</h3>
+                <p>A comprehensive assessment for serious issues.</p>
+                <button>Start</button>
+            </div>
+        </div>
+
+        <div class="assigned-quizzes">
+            <h2>Assigned Quizzes</h2>
+            <div class="assigned-quizzes-list">
+                <div class="assigned-quiz-item">
+                    <h3>Quiz 1</h3>
+                    <p>Due: 2024-10-31</p>
+                    <button>Start</button>
+                </div>
+                <div class="assigned-quiz-item">
+                    <h3>Quiz 2</h3>
+                    <p>Due: 2024-11-15</p>
+                    <button>Start</button>
+                </div>
+                <div class="assigned-quiz-item">
+                    <h3>Quiz 3</h3>
+                    <p>Due: 2024-11-30</p>
+                    <button>Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

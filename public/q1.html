@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood And Anxiety</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f0f2; /* Soft light blue */
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            background-color: #ffffff; /* White for clarity */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            margin-top: 100px;
+            border: 1px solid #b3d0e6; /* Light border for a subtle touch */
+        }
+        h1 {
+            color: #28a745; /* Calming blue */
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+        button {
+            background-color: #28a745; /* Calming blue */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+        }
+        button:hover {
+            background-color: #357ab8; /* Darker blue on hover */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555; /* Dark gray for readability */
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Mood and anxiety</h1>
+    <div id="quiz"></div>
+    <button id="actionButton" onclick="nextQuestion()">Next</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "What is the primary feeling associated with depression?",
+            options: ["Happiness", "Sadness" ,"Anger" ,"Excitement"],
+            answer: "Sadness"
+        },
+        {
+            question: "Which of the following is a common symptom of anxiety?",
+            options: ["Lack of sleep","Excessive worry" ,"Joyful feelings" ,"Strong focus"],
+            answer: "Excessive worry"
+        },
+        {
+            question: "What is one common treatment for mood disorders?",
+            options: [ "Isolation","Medication","Avoidance","Denial"],
+            answer: "Medication"
+        },
+        {
+            question: "What type of therapy is often used to help with anxiety?",
+            options: ["Behavioral therapy", "Nutrition therapy","Spiritual therapy","Massage therapy"],
+            answer: "Behavioral therapy"
+        },
+        {
+            question: "Which of the following can trigger anxiety in some individuals?",
+            options: ["Public speaking","Relaxation exercises","Deep breathing","Meditation"],
+            answer: "Public speaking"
+        },
+        
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function displayQuestion() {
+        const quizContainer = document.getElementById('quiz');
+        quizContainer.innerHTML = '';
+
+        if (currentQuestionIndex < questions.length) {
+            const q = questions[currentQuestionIndex];
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            questionElement.innerHTML = `<p>${currentQuestionIndex + 1}. ${q.question}</p>`;
+            q.options.forEach(option => {
+                questionElement.innerHTML += `
+                    <label>
+                        <input type="radio" name="question${currentQuestionIndex}" value="${option}">
+                        ${option}
+                    </label>
+                `;
+            });
+            quizContainer.appendChild(questionElement);
+        } else {
+            displayResult();
+        }
+
+        // Change button text based on current question index
+        const actionButton = document.getElementById('actionButton');
+        if (currentQuestionIndex === questions.length - 1) {
+            actionButton.innerText = "Submit";
+        } else {
+            actionButton.innerText = "Next";
+        }
+    }
+
+    function nextQuestion() {
+        const selected = document.querySelector(`input[name="question${currentQuestionIndex}"]:checked`);
+        if (selected && selected.value === questions[currentQuestionIndex].answer) {
+            score++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            displayResult();
+        }
+    }
+
+    function displayResult() {
+        const quizContainer = document.getElementById('quiz');
+        quizContainer.innerHTML = '';
+        document.getElementById('actionButton').style.display = 'none';
+        document.getElementById('result').innerText = `You scored ${score} out of ${questions.length}. Thank you for participating!`;
+    }
+
+    window.onload = displayQuestion;
+</script>
+
+</body>
+</html>

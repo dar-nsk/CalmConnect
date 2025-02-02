@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #28a745;
+            color: white;
+        }
+        nav {
+            display: flex;
+            gap: 30px;
+            height: 40px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            margin-right: 20px;
+            width: 80px;
+            height: 20px;
+            text-align: center;
+        }
+        nav a:hover {
+            color:black;
+            background-color:white ;
+            border: 1.5px solid black;
+            padding: 5px;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            text-align: center; /* Center align the heading */
+            margin: 20px 0;
+        }
+        .intro {
+            margin-top: 20px; /* Slight top margin */
+            font-size: 40px; /* Slightly larger font size */
+            color: white; /* Different color for the intro */
+            font-weight: 300;
+        }
+        .mission-vision {
+            position: relative;
+            height: 100vh;
+            background-image: url('bg.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: xx-large; /* Increased font size */
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden; /* Ensure no overflow */
+        }
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Faint overlay */
+            z-index: 1; /* Ensure it stays behind text */
+        }
+        .mission-vision p {
+            font-weight: bold; /* Bold text */
+            margin: 50px 0; /* Spacing between paragraphs */
+            text-align: center; /* Center align text */
+            z-index: 2; /* Ensure text stays above the overlay */
+            position: relative; /* Necessary for z-index */
+        }
+        .offerings {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .offering {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px; /* Increased card width */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .offering img {
+            width: 300px; /* Increased image size in cards */
+            height: 180px; /* Maintain aspect ratio */
+        }
+        .offering:hover {
+            transform: scale(1.05);
+        }
+        .team {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 10px;
+        }
+        .team img {
+            border-radius: 0%;
+            margin-right: 20px;
+            width: 300px; /* Increased psychologist image size */
+            height: 350px; /* Maintain aspect ratio */
+        }
+        .team-info {
+            text-align: left; /* Align text to the left */
+        }
+        .footer {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .team {
+                flex-direction: column;
+                text-align: center;
+            }
+            .team img {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 180px; /* Adjust size for mobile */
+                height: 180px; /* Maintain aspect ratio */
+            }
+            .offerings {
+                flex-direction: column;
+                align-items: center;
+            }
+            .offering {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Logo</div>
+    <nav>
+        <a href="flicity.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <h1>About Us</h1>
+    
+    <!-- <p class="intro">Welcome to Wisdom Wave, where we combine human empathy with AI technology to support your mental health journey.</p> -->
+    
+    <div class="mission-vision">
+        <p class="intro">Welcome to Wisdom Wave, where we combine human empathy with AI technology to support your mental health journey.
+            Our mission is to empower individuals to navigate their mental health challenges with compassion and understanding.</p>
+
+      
+    </div>
+    
+    <h2>What We Offer</h2>
+    <p>"At Wisdom Wave, we are dedicated to providing accessible mental health support through a unique blend of human counseling and AI assistance. 
+        <br>Our vision is a world where everyone has access to the help they need.</p>
+    <div class="offerings">
+        <div class="offering">
+            <img src="live.jpg" alt="Live Counseling">
+            <p>Live Counseling</p>
+        </div>
+        <div class="offering">
+            <img src="ai.jfif" alt="AI Assistance">
+            <p>AI Assistance</p>
+        </div>
+    </div>
+
+    <h2>Meet Our Psychologist</h2>
+    <div class="team">
+        <img src="download.jfif" alt="Dr. Pratibha Chandak">
+        <div class="team-info">
+            <h3>Dr. Pratibha Chandak</h3>
+            <p>M.A., M.Phil.</p>
+            <p>Dr. Pratibha Chandak is a practicing psychologist with over 25 years of experience. 
+            Since 2021, she has been serving as a counselor at K K Wagh College of Engineering, Polytechnic, and Pharmacy, where she has supported more than 300 students and staff through challenging times.
+             Dr. Chandak conducts seminars to raise awareness and provide guidance on various topics, including skill development, time management, mentoring, stress management, communication skills, CV writing, and mock interviews.
+             In addition to counseling, she mentors students to enhance their career prospects and life paths.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>Follow us on social media</p>
+    <!-- Add social media links here -->
+</footer>
+
+</body>
+</html>
+
