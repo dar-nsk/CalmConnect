@@ -101,8 +101,7 @@ To run this project locally, follow these steps.
 1. **Clone the repository**
 
    ```bash
-   git clone (https://github.com/dar-nsk/CalmConnect)
-   cd yourrepo
+   git clone [https://github.com/dar-nsk/CalmConnect]
 
 2. **Install dependencies:**
    ```bash
@@ -115,8 +114,3 @@ To run this project locally, follow these steps.
    ```bash
    node server.js
    npm start
-
-   
-   
-
-
