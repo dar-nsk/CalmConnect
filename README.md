@@ -59,27 +59,27 @@ Key highlights include:
 ---
 
 ### 🔑 Login Page
-![Login](./screenshots/login.png)
+![Image](https://github.com/user-attachments/assets/5dac14df-9757-4fa9-8a22-51b24364a38d)
 
 ---
 
 ### 🗂️ User Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Image](https://github.com/user-attachments/assets/262134e9-c3de-45f6-8f79-066b4b99668b)
 
 ---
 
 ### 💬 Chat Interface
-![Chat](./screenshots/chat.png)
+![Image](https://github.com/user-attachments/assets/bf359252-ac4b-4419-b0cd-45eed9b19656)
 
 ---
 
 ### 📅 Booking Section
-![Booking](./screenshots/booking.png)
+![Image](https://github.com/user-attachments/assets/196f7ecc-738c-40e9-a073-b7ea922c1e1e)
 
 ---
 
 ### 📈 Activities & Analytics
-![Activities](./screenshots/activities.png)
+![Image](https://github.com/user-attachments/assets/0b3c5a6d-1704-418f-8638-a27f5df337f1)
 
 ---
 
