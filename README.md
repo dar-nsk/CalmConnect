@@ -54,7 +54,7 @@ Key highlights include:
 ## 📸 Screenshots
 
 ### 🏠 Homepage
-![Homepage](./screenshots/homepage.png)
+![Image](https://github.com/user-attachments/assets/79299278-7320-4c74-aafa-139879b3a016)
 
 ---
 
