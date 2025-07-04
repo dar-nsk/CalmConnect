@@ -1,51 +1,122 @@
-# Mental_health-website
-🧠 Mental Health Counseling Platform – Empower Your Mind
-A full-stack web application designed to support users in understanding and improving their mental health. This platform allows users to take self-assessment quizzes, book appointments with certified counselors, receive personalized care tips, and engage in real-time communication — all in one place.
 
-🔍 Features
-✅ Role-based Authentication for Admin, Users, and Counselors
+## CalmConnect
 
-🧪 Mental Health Quiz with dynamic scoring and tailored recommendations
+MindConnect is a full-stack web application designed to improve mental health by connecting users with professional counselors. The platform enables secure authentication, real-time chat, video counseling sessions, and self-assessment quizzes to empower users in managing their mental well-being.
 
-📅 Appointment Booking System with real-time availability
+Key highlights include:
+- Multiple user roles: Admin, Counselor, and User
+- Zoom API integration for virtual sessions
+- Realtime messaging via Socket.io
+- Booking management and reminders
+- Visual dashboards to track progress and engagement
 
-📞 Zoom/Google Meet Integration for virtual counseling sessions
+🎥 **[Watch Demo Video](https://your-demo-link.com)**
 
-💬 Real-time Chat System using Socket.io
+---
 
-📩 Email Notifications for booking confirmations and reminders
+## 🛠️ Built With
 
-📊 Dashboard for Users & Counselors to manage activities
+- **Frontend:**
+  - React.js
+  - Tailwind CSS
 
-📚 Blog & Articles Section with mental wellness content
+- **Backend:**
+  - Node.js
+  - Express.js
+  - Socket.io
+  - Zoom API
+  - Nodemailer
 
-🔐 JWT-based Secure Login System
+- **Database:**
+  - MongoDB Atlas
 
-🛠️ Tech Stack
-Frontend:
-React.js
-Tailwind CSS / Bootstrap
-Axios for API calls
+- **Authentication:**
+  - JSON Web Token (JWT)
 
-Backend:
-Node.js
-Express.js
-RESTful API architecture
+- **Deployment:**
+  - Vercel (frontend)
+  - Render (backend)
 
-Database:
-MongoDB 
+---
 
-Authentication:
-JSON Web Tokens (JWT)
+## ✨ Features
 
-Other Integrations:
-Socket.io – real-time chat
-Zoom API / Google Calendar API – for sessions
-Nodemailer – for email notifications
+- 🔐 Secure authentication & role-based access
+- 📅 Booking system for counselor appointments
+- 📹 Zoom video sessions integration
+- 💬 Anonymous chat support  
+- 📊 Analytics dashboard for user progress
+- 📬 Email notifications and confirmations
+- 📰 Articles and resources on mental health
 
-Deployment:
-Frontend: Vercel
-Database: MongoDB 
+---
 
-📸 Screenshots
+## 📸 Screenshots
+
+### 🏠 Homepage
+![Homepage](./screenshots/homepage.png)
+
+---
+
+### 🔑 Login Page
+![Login](./screenshots/login.png)
+
+---
+
+### 🗂️ User Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+---
+
+### 💬 Chat Interface
+![Chat](./screenshots/chat.png)
+
+---
+
+### 📅 Booking Section
+![Booking](./screenshots/booking.png)
+
+---
+
+### 📈 Activities & Analytics
+![Activities](./screenshots/activities.png)
+
+---
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally, follow these steps.
+
+### Prerequisites
+
+- Node.js installed
+- MongoDB Atlas account (or local MongoDB)
+- Zoom API credentials
+- Vercel/Render accounts for deployment
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone (https://github.com/dar-nsk/CalmConnect)
+   cd yourrepo
+
+2. **Install dependencies:**
+   ```bash
+   cd backend
+   npm install
+   cd frontend
+   npm install
+
+3. **Run the app:**
+   ```bash
+   node server.js
+   npm start
+
+   
+   
+
 
